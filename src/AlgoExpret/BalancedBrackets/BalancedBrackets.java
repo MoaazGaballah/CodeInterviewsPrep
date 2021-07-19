@@ -3,7 +3,7 @@ package AlgoExpret.BalancedBrackets;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class Program {
+public class BalancedBrackets {
     public static boolean balancedBrackets(String str) {
         // Write your code here.
         if (null == str) {
