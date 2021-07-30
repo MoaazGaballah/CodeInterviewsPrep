@@ -1,4 +1,4 @@
-package AlgoExpret.ShortenPath;
+package AlgoExpret.Stack.ShortenPath;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package AlgoExpret.MinMaxStackConstruction;
+package AlgoExpret.Stack.MinMaxStackConstruction;
 
 import java.util.Stack;
 

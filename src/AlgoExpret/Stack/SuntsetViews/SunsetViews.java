@@ -1,4 +1,4 @@
-package AlgoExpret.SuntsetViews;
+package AlgoExpret.Stack.SuntsetViews;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

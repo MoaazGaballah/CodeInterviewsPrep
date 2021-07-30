@@ -1,4 +1,4 @@
-package AlgoExpret.NextGreaterElement;
+package AlgoExpret.Stack.NextGreaterElement;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

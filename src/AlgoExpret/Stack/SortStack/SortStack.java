@@ -1,4 +1,4 @@
-package AlgoExpret.SortStack;
+package AlgoExpret.Stack.SortStack;
 
 import java.util.ArrayList;
 

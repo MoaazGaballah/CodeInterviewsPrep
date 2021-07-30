@@ -1,4 +1,4 @@
-package AlgoExpret.LargestRectangleUnderSkyline;
+package AlgoExpret.Stack.LargestRectangleUnderSkyline;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

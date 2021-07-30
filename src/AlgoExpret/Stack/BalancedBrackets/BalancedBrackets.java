@@ -1,4 +1,4 @@
-package AlgoExpret.BalancedBrackets;
+package AlgoExpret.Stack.BalancedBrackets;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
