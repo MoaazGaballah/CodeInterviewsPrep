@@ -1,6 +1,8 @@
 package AlgoExpret.LargestRectangleUnderSkyline;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 
 public class LargestRectangle {
 
@@ -71,19 +73,75 @@ public class LargestRectangle {
 
     public int largestRectangleUnderSkyline2(ArrayList<Integer> buildings) {
         // Write your code here.
-        return -1;
+
+        // this area will be returned
+        int maxArea = 0;
+
+        // stack will be used to store the indices of buildings ArrayList
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        // to empty the stack at 0 height
+        buildings.add(0);
+
+        for (int i = 0; i < buildings.size(); i++) {
+
+            // This height will be compared to stack.peek()
+            int height = buildings.get(i);
+
+            // if the element at stack bigger than or equal to height
+            // of current building, then pop off the stack until be smaller than it
+            while(!stack.isEmpty() && buildings.get(stack.peek()) >= height) {
+
+                // index popped from stack, and we popped it here to use next element
+                // in stack (by calling stack.peek() )
+                int popped = stack.pop();
+
+                // - if stack is NOT empty then width will be all the way just before the current index (i)
+                //   til the next element in the stack which we called by stack.peek()
+                // - else if stack is empty and i is not the last index then width will be 0 (equals to i)
+                // - else width will be equal to i
+//                int width = !stack.isEmpty() ? i - 1 - stack.peek() :i % (buildings.size() -1) == 0 ? buildings.size() - 1 : i;
+
+                // - if stack is NOT empty then width will be all the way just before the current index (i)
+                //   til the next element in the stack which we called by stack.peek()
+                // - else width will be equal to i
+                int width = !stack.isEmpty() ? i - 1 - stack.peek() : i;
+
+                // This is the height of element just before i
+                int heightBeforeI = buildings.get(popped);
+
+                // calculating the max from current maxArea and area of new rectangle we just calculated
+                // its height (heightBeforeI) and width
+                maxArea = Math.max(maxArea, width * heightBeforeI);
+            }
+
+            // if the building at ArrayList bigger than or equal to height
+            // at the index lies in stack.peek, then push it to stack
+            stack.push(i);
+        }
+        return maxArea;
     }
 
     public static void initalizeHeights(ArrayList<Integer> buildings) {
-        buildings.add(1);
-        buildings.add(3);
-        buildings.add(3);
-        buildings.add(2);
+
+        // expected output : 9
+//        buildings.add(1);
+//        buildings.add(3);
+//        buildings.add(3);
+//        buildings.add(2);
+//        buildings.add(4);
+//        buildings.add(1);
+//        buildings.add(5);
+//        buildings.add(3);
+//        buildings.add(2);
+
+        // expected output : 12
         buildings.add(4);
-        buildings.add(1);
-        buildings.add(5);
-        buildings.add(3);
+        buildings.add(4);
+        buildings.add(4);
         buildings.add(2);
+        buildings.add(2);
+        buildings.add(1);
     }
 
     public static void main(String[] args) {
@@ -93,8 +151,10 @@ public class LargestRectangle {
 
         initalizeHeights(buildingsHeights);
 
-        System.out.println(lr.largestRectangleUnderSkyline1(buildingsHeights));
+        // iterative solution
+//        System.out.println(lr.largestRectangleUnderSkyline1(buildingsHeights));
 
+        // stack used solution
         System.out.println(lr.largestRectangleUnderSkyline2(buildingsHeights));
     }
 }
