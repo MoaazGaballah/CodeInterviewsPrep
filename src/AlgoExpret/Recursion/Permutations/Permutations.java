@@ -41,7 +41,7 @@ public class Permutations {
     }
 
     public static List<List<Integer>> getPermutationsNfactorialN(int i, List<Integer> array, List<List<Integer>> permutations){
-        if (i == array.size() - 1) permutations.add(array);
+        if (i == array.size() - 1) permutations.add(new ArrayList<>(array));
         else
             for (int j = i; j < array.size(); j++) {
                 swap(i, j, array);
