@@ -15,6 +15,7 @@ public class Powerset {
      */
     public static List<List<Integer>> powerset(List<Integer> array) {
         // Write your code here.
+
         // o(n*2^n) time | o(n*2^n) space
 
         return powerset(array, array.size() - 1);
