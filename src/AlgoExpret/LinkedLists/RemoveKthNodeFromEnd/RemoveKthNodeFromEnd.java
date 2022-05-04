@@ -73,8 +73,6 @@ public class RemoveKthNodeFromEnd {
         }
 
         public void printInfo() {
-            System.out.println();
-            System.out.println("------------------------------");
             System.out.print(this.value);
 
             LinkedList tempHead = this;
@@ -83,6 +81,8 @@ public class RemoveKthNodeFromEnd {
                 System.out.print(" -> " + tempHead.next.value);
                 tempHead = tempHead.next;
             }
+            System.out.println();
+            System.out.println("------------------------------");
         }
     }
 
