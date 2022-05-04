@@ -30,26 +30,38 @@ public class ReverseLinkedList {
     public static LinkedList reverseLinkedList(LinkedList head) {
         // Write your code here.
 
-        Deque<LinkedList> stack = new ArrayDeque<>();
+//        Deque<LinkedList> stack = new ArrayDeque<>();
+//
+//        LinkedList temp = head;
+//        while (temp != null){
+//            LinkedList tempNode = new LinkedList(temp.value);
+//            stack.push(tempNode);
+//
+//            temp = temp.next;
+//        }
+//
+//        LinkedList newHead = stack.pop();
+//
+//        LinkedList newHeadTemp = newHead;
+//
+//        while (stack.peek() != null){
+//            newHeadTemp.next = stack.pop();
+//            newHeadTemp = newHeadTemp.next;
+//        }
+//        head = newHead;
+//        return head;
 
-        LinkedList temp = head;
-        while (temp != null){
-            LinkedList tempNode = new LinkedList(temp.value);
-            stack.push(tempNode);
+//        without create a brnad new list
 
-            temp = temp.next;
+        LinkedList prevNode = null;
+        LinkedList currNode = head;
+        while(currNode != null){
+            LinkedList nextNode = currNode.next;
+            currNode.next = prevNode;
+            prevNode = currNode;
+            currNode = nextNode;
         }
-
-        LinkedList newHead = stack.pop();
-
-        LinkedList newHeadTemp = newHead;
-
-        while (stack.peek() != null){
-            newHeadTemp.next = stack.pop();
-            newHeadTemp = newHeadTemp.next;
-        }
-        head = newHead;
-        return head;
+        return prevNode;
     }
 
     static class LinkedList {
